@@ -6,7 +6,7 @@ import random
 import torch
 import pickle
 
-from stream_pipeline_offline import StreamSDK
+from scripts.stream_pipeline_offline import StreamSDK
 
 
 def seed_everything(seed):
