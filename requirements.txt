@@ -1,3 +1,4 @@
+torch
 tensorrt==8.6.1
 librosa
 tqdm
