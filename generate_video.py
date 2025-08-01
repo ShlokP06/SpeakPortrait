@@ -6,9 +6,11 @@ import os
 import numpy as np
 import librosa
 
-from your_model_lib import StreamSDK, run  # Adjust this import to your actual SDK script
-from your_config import cfg_pkl, data_root  # Adjust accordingly
+from scripts.inference import run
+from scripts.stream_pipeline_offline import StreamSDK  # Adjust this import to your actual SDK script
 
+data_root = "./checkpoints/ditto_trt"
+cfg_pkl = "./checkpoints/ditto_cfg/v0.4_hubert_cfg_trt.pkl"
 app = Flask(__name__)
 ngrok.set_auth_token('2zBytGMcVk9x9BMsHaTl8LHQCsk_4ruiCTWtjRUNjapivYdEd')
 public_url = ngrok.connect(5000)
