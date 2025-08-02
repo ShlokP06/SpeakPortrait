@@ -170,31 +170,31 @@ If we've overlooked any contributors, please let us know — we’ll gladly upda
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/shlok-parikh-370773335/">
-        <sub><b>Shlok Parikh</b></sub>
+        <b>Shlok Parikh</b>
       </a>
       <br />Project Lead • 240008027
     </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/anushka-jain-12a812318/">
-        <sub><b>Anushka Jain</b></sub>
+        <b>Anushka Jain</b>
       </a>
       <br /> Audio Processing and TTS • 240008005
     </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/tanishq-dhari-734029360/">
-        <sub><b>Tanishq Dhari</b></sub>
+        <b>Tanishq Dhari</b>
       </a>
       <br />Backend Framework and APIs • 240001072
     </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/samvaadi-dadhi-8528a631a/">
-        <sub><b>Samvaadi Dadhi</b></sub>
+        <b>Samvaadi Dadhi</b>
       </a>
       <br /> Data Processing and Research • 240051019
     </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/harsh-mahajan-4b3b9431b/">
-        <sub><b>Harsh Mahajan</b></sub>
+        <b>Harsh Mahajan</b>
       </a>
       <br />Frontend Design • 240001034
     </td>
