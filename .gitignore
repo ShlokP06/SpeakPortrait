@@ -33,6 +33,3 @@ log/*
 *.pth
 *.pyc
 *.jpeg
-
-!example/audio.wav
-!example/image.png

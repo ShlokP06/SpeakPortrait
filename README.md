@@ -8,6 +8,7 @@ Our modifications include:
 - The TTS Supports **Emotional Voice Generation** as well as **Zero-Shot Voice Cloning**. <br>
 - Used **Qwen LLM API** in our Next.js frontend to help users in completing dialogues and prompting
 
+## Setup
 Clone the codes from [GitHub](https://github.com/ShlokP06/SpeakPortrait):  
 ```bash
 git clone https://github.com/ShlokP06/SpeakPortrait
@@ -47,6 +48,12 @@ Alternatively, on a Linux-based platform such as Colab run
 bash setup.sh
 ```
 The setup.sh file installs ffmpeg and libcudnn, as well as the dependencies listed in requirements.txt.
+
+## NGROK Connection
+To support NGROK Tunneling and frontend-backend connection, you need to create Ngrok Authentication Token from their [Official Website](https://ngrok.com/), and paste it in generate_video.py or colab notebook in the following format:
+```bash
+ngrok.set_auth_token('')            #Enter your token here: generate_video.py line 15, video_generation.ipynb last cell, line 8
+```
 
 ## 📥 Download Checkpoints
 
@@ -142,6 +149,8 @@ npm run dev
 Note: You may see some deprecation warnings during `npm install`, but they do not prevent the app from running.
 Now, the frontend-backend interface is working!
 
+### TTS
+If you further want to use the Zonos TTS, run [Zonos.tts.ipynb](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Zonos_tts.ipynb), and use the generated url to paste inside [Route.js]()
 ## 📧 Acknowledgement
 This work is primarily built on AntGroup's [Ditto](https://github.com/antgroup/ditto-talkinghead), which forms the backbone (~80%) of our implementation. We sincerely thank their team for open-sourcing such a well-engineered system.
 
