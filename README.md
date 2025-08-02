@@ -8,6 +8,19 @@ Our modifications include:
 - The TTS Supports **Emotional Voice Generation** as well as **Zero-Shot Voice Cloning**. <br>
 - Used **Qwen LLM API** in our Next.js frontend to help users in completing dialogues and prompting
 
+## Demo Videos
+
+The following video shows the whole pipeline running together:
+[Watch the demo video](https://drive.google.com/file/d/1-mMCUQBQT1gJUc1f44YpdVmecFA4RpaX/view?usp=sharing)
+
+The following video demonstrates the effect of emotion control:
+[Emotion Control](https://drive.google.com/file/d/1IEpWbIe9VW5cVjOXFp69lQmJd8fi5D_g/view?usp=sharing)
+In the above video, the left video is at default or neutral emotion, while the right one is angry.
+
+While LoRA finetuning to improve emotional realism seemed a good idea, due to lack of proper dataset, artifacts were visible.
+[Effect of LoRA](https://drive.google.com/file/d/1-mMCUQBQT1gJUc1f44YpdVmecFA4RpaX/view?usp=sharing)
+In the above video, the left one is without LoRA adapter, whereas in the right one, lora adapter is there.
+
 ## Setup
 Clone the codes from [GitHub](https://github.com/ShlokP06/SpeakPortrait):  
 ```bash
@@ -131,10 +144,11 @@ You can also run the backend using [generate_video.py](https://github.com/ShlokP
 python generate_video.py
 ```
 Using the ngrok link generated, you can connect to the frontend.
-In the [Interface](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface) create a file named .env.local and paste your Huggingface Access Token (For Auto Completing text) and Ngrok Tunnel Public URL:
+In the [Interface](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface) create a file named .env.local and paste your Huggingface Access Token (For Auto Completing text) and Ngrok Tunnel Public URL. If you want to use the Zonos TTS, run [Zonos_tts.ipynb](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Zonos_tts.ipynb), and use the generated url to paste inside the .env.local file as:
 ```bash
 NEXT_PUBLIC_API_URL =           #Your NGROK URL, without quotes
 HF_API_KEY =            #Your HF Access toke, without quotes
+ZONOS_URL =             #Enter the URL from Zonos_tts.ipynb here
 ```
 ### To run the Frontend
 Now run the following commands
@@ -147,13 +161,8 @@ npm install
 npm run dev
 ```
 Note: You may see some deprecation warnings during `npm install`, but they do not prevent the app from running.
-Now, the frontend-backend interface is working!
+The frontend-backend interface is working!
 
-### TTS
-If you further want to use the Zonos TTS, run [Zonos.tts.ipynb](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Zonos_tts.ipynb), and use the generated url to paste inside [Route.js](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/.next/server/app/api/zonos/route.js), line 19 as:
-```bash
-const client = await _gradio_client__WEBPACK_IMPORTED_MODULE_1__.Client.connect("");          // Add the URL here
-```
 Now, you will be able to use the TTS on the frontend along with backend seamlessly.
 ## 📧 Acknowledgement
 This work is primarily built on AntGroup's [Ditto](https://github.com/antgroup/ditto-talkinghead), which forms the backbone (~80%) of our implementation. We sincerely thank their team for open-sourcing such a well-engineered system.
