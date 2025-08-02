@@ -150,7 +150,11 @@ Note: You may see some deprecation warnings during `npm install`, but they do no
 Now, the frontend-backend interface is working!
 
 ### TTS
-If you further want to use the Zonos TTS, run [Zonos.tts.ipynb](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Zonos_tts.ipynb), and use the generated url to paste inside [Route.js]()
+If you further want to use the Zonos TTS, run [Zonos.tts.ipynb](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Zonos_tts.ipynb), and use the generated url to paste inside [Route.js](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/.next/server/app/api/zonos/route.js), line 19 as:
+```bash
+const client = await _gradio_client__WEBPACK_IMPORTED_MODULE_1__.Client.connect("");          // Add the URL here
+```
+Now, you will be able to use the TTS on the frontend along with backend seamlessly.
 ## 📧 Acknowledgement
 This work is primarily built on AntGroup's [Ditto](https://github.com/antgroup/ditto-talkinghead), which forms the backbone (~80%) of our implementation. We sincerely thank their team for open-sourcing such a well-engineered system.
 
@@ -159,6 +163,43 @@ We also draw inspiration from:
 -[LivePortrait](https://github.com/KwaiVGI/LivePortrait)
 
 If we've overlooked any contributors, please let us know — we’ll gladly update the acknowledgements.
+
+## 👥 Team
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/shlok-parikh-370773335/">
+        <sub><b>Shlok Parikh</b></sub>
+      </a>
+      <br />Project Lead • 240008027
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/anushka-jain-12a812318/">
+        <sub><b>Anushka Jain</b></sub>
+      </a>
+      <br /> Audio Processing and TTS • 240008005
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/tanishq-dhari-734029360/">
+        <sub><b>Tanishq Dhari</b></sub>
+      </a>
+      <br />Backend Framework and APIs • 240001072
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/samvaadi-dadhi-8528a631a/">
+        <sub><b>Samvaadi Dadhi</b></sub>
+      </a>
+      <br /> Data Processing and Research • 240051019
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/harsh-mahajan-4b3b9431b/">
+        <sub><b>Harsh Mahajan</b></sub>
+      </a>
+      <br />Frontend Design • 240001034
+    </td>
+  </tr>
+</table>
 
 ## ⚖️ License
 This repository is released under the Apache-2.0 license as found in the [LICENSE](LICENSE) file.
