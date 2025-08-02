@@ -1,5 +1,14 @@
 <h2 align='center'>SpeakPortrait: Audio-Driven Talking Head Animantion</h2>
 
+This repository contains a re-implementation and extension of AntGroup's [SpeakPortrait](https://github.com/antgroup/SpeakPortrait), a state-of-the-art system for audio-driven talking head animation. We build upon SpeakPortrait's foundation (~80% of the core pipeline), and added improvements to the UI, backend inference interface, and model deployment. This project enables real-time generation of photorealistic talking head videos given an input image and audio clip.
+
+Our modifications include:
+-1. Added A Next.js Frontend and **Ngrok Backend** for seamless and user friendly interfacing
+-2. Added **Zonos TTS** to the pipeline, to support text inputs.
+-3. The TTS Supports **Emotional Voice Generation** as well as **Zero-Shot Voice Cloning**. 
+-4. Used **Qwen LLM API** in our Next.js frontend to help users in completing dialogues and prompting
+
+
 Clone the codes from [GitHub](https://github.com/ShlokP06/SpeakPortrait):  
 ```bash
 git clone https://github.com/ShlokP06/SpeakPortrait
@@ -108,7 +117,21 @@ The `checkpoints` should be like:
 
 
 ## 🚀 Inference 
+### To connect to backend
+For inference, if you want to see the execution step by step and temper with the parameters, we provide a [Colab Notebook](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Video_generation.ipynb) for reference.
+Using the ngrok link generated in the final cell, you can connect to the frontend.
+You can also run the backend using [generate_video.py](https://github.com/ShlokP06/SpeakPortrait/blob/main/generate_video.py) as follows:
+```bash
+python generate_video.py
+```
+Using the ngrok link generated, you can connect to the frontend.
+In the [Interface](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface) create a file named .env.local and paste your Huggingface Access Token (For Auto Completing text) and Ngrok Tunnel Public URL:
+```bash
+NEXT_PUBLIC_API_URL =           #Your NGROK URL, without quotes
+HF_API_KEY =            #Your HF Access toke, without quotes
 ### To run the Frontend
+```
+Now run the following commands
 ```bash
 cd Interface
 #Install project dependencies
@@ -117,15 +140,8 @@ npm install
 #Start the development server
 npm run dev
 ```
-
-### To connect to backend
-For inference, if you want to see the execution step by step and temper with the parameters, we provide a [Colab Notebook](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Video_generation.ipynb) for reference.
-Using the ngrok link generated in the final cell, you can connect to the frontend.
-You can also run the backend as follows:
-```bash
-python generate_video.py
-```
-Using the ngrok link generated, you can connect to the frontend.
+Note: You may see some deprecation warnings during `npm install`, but they do not prevent the app from running.
+Now, the frontend-backend interface is working!
 
 ## 📧 Acknowledgement
 Our implementation is based on [S2G-MDDiffusion](https://github.com/thuhcsi/S2G-MDDiffusion) and [LivePortrait](https://github.com/KwaiVGI/LivePortrait). Thanks for their remarkable contribution and released code! If we missed any open-source projects or related articles, we would like to complement the acknowledgement of this specific work immediately.
