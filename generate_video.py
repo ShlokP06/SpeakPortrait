@@ -16,7 +16,7 @@ ngrok.set_auth_token('')                            #Set your own ngrok token
 public_url = ngrok.connect(5000)
 print(f"🔗 Public URL: {public_url}")   
 
-def get_seq_len_from_audio(audio_path, fps=25, target_sr=16000):                    #function to dynamically find out the audio length in seconds
+def get_seq_len_from_audio(audio_path, fps=25, target_sr=16000):                    #function to dynamically find out the number of frames
     audio, sr = librosa.load(audio_path, sr=target_sr)
     duration_sec = len(audio) / sr
     return int(duration_sec * fps)
