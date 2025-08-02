@@ -1,11 +1,11 @@
 <h2 align='center'>SpeakPortrait: Audio-Driven Talking Head Animantion</h2>
 
-This repository contains a re-implementation and extension of AntGroup's [SpeakPortrait](https://github.com/antgroup/SpeakPortrait), a state-of-the-art system for audio-driven talking head animation. We build upon SpeakPortrait's foundation (~80% of the core pipeline), and added improvements to the UI, backend inference interface, and model deployment. This project enables real-time generation of photorealistic talking head videos given an input image and audio clip.
+This repository contains a re-implementation and extension of AntGroup's [Ditto](https://github.com/antgroup/ditto-talkinghead), a state-of-the-art system for audio-driven talking head animation. We build upon SpeakPortrait's foundation (~80% of the core pipeline), and added improvements to the UI, backend inference interface, and model deployment. This project enables real-time generation of photorealistic talking head videos given an input image and audio clip.
 
 Our modifications include:
--1. Added A Next.js Frontend and **Ngrok Backend** for seamless and user friendly interfacing
--2. Added **Zonos TTS** to the pipeline, to support text inputs.
--3. The TTS Supports **Emotional Voice Generation** as well as **Zero-Shot Voice Cloning**. 
+-1. Added A Next.js Frontend and **Ngrok Backend** for seamless and user friendly interfacing \\
+-2. Added **Zonos TTS** to the pipeline, to support text inputs. \\
+-3. The TTS Supports **Emotional Voice Generation** as well as **Zero-Shot Voice Cloning**. \\ 
 -4. Used **Qwen LLM API** in our Next.js frontend to help users in completing dialogues and prompting
 
 
@@ -129,8 +129,8 @@ In the [Interface](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface
 ```bash
 NEXT_PUBLIC_API_URL =           #Your NGROK URL, without quotes
 HF_API_KEY =            #Your HF Access toke, without quotes
-### To run the Frontend
 ```
+### To run the Frontend
 Now run the following commands
 ```bash
 cd Interface
