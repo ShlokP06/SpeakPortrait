@@ -7,16 +7,16 @@ import numpy as np
 import librosa
 
 from scripts.inference import run
-from scripts.stream_pipeline_offline import StreamSDK  # Adjust this import to your actual SDK script
+from scripts.stream_pipeline_offline import StreamSDK  #Importing the class from original Ditto
 
 data_root = "./checkpoints/ditto_trt"
 cfg_pkl = "./checkpoints/ditto_cfg/v0.4_hubert_cfg_trt.pkl"
 app = Flask(__name__)
-ngrok.set_auth_token('2zBytGMcVk9x9BMsHaTl8LHQCsk_4ruiCTWtjRUNjapivYdEd')
+ngrok.set_auth_token('')                            #Set your own ngrok token
 public_url = ngrok.connect(5000)
-print(f"🔗 Public URL: {public_url}")
+print(f"🔗 Public URL: {public_url}")   
 
-def get_seq_len_from_audio(audio_path, fps=25, target_sr=16000):
+def get_seq_len_from_audio(audio_path, fps=25, target_sr=16000):                    #function to dynamically find out the audio length in seconds
     audio, sr = librosa.load(audio_path, sr=target_sr)
     duration_sec = len(audio) / sr
     return int(duration_sec * fps)
@@ -27,11 +27,12 @@ def generate():
     audio = request.files.get('audio')
     emotion_index = request.form.get('emotion')
 
-    if not image or not audio or emotion_index is None:
+    if not image or not audio or emotion_index is None:                            #handling empty input errors
         return "Missing image, audio, or emotion", 400
 
     try:
-        emotion_index = int(emotion_index)
+        emotion_index = int(emotion_index)                                          #Ditto requires us to use emotion indexes
+        #{0:"Angry", 1:"Disgust", 2:"Fear", 3:"Happy", 4:"Neutral", 5: "Sad", 6:"Surprise", 7:"Contempt"}
         if not (0 <= emotion_index <= 7):
             return "Emotion index must be between 0 and 7", 400
     except ValueError:
@@ -45,15 +46,15 @@ def generate():
 
     try:
         seq_len = get_seq_len_from_audio(audio_path)
-        emo_arr = np.zeros((seq_len, 8), dtype=np.float32)
-        emo_arr[:, emotion_index] = 1.0
+        emo_arr = np.zeros((seq_len, 8), dtype=np.float32)  
+        emo_arr[:, emotion_index] = 1.0                                               #Array for frame-by-frame emotion control (Here, all emotions are same)
 
         setup_kwargs = {"emo": emo_arr}
         more_kwargs = {"setup_kwargs": setup_kwargs, "run_kwargs": {}}
 
-        SDK = StreamSDK(cfg_pkl, data_root)
+        SDK = StreamSDK(cfg_pkl, data_root)                                        #Initialising a member of the class
         run(SDK, audio_path, image_path, output_path, more_kwargs=more_kwargs)
-        del SDK
+        del SDK                                                                     #Deleting the member to free up VRAM
 
     except Exception as e:
         return f"Inference failed: {e}", 500

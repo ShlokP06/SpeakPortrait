@@ -8,7 +8,7 @@ if not os.path.isdir("checkpoints"):
     os.system("git lfs install")
     os.system("git clone https://huggingface.co/digital-avatar/ditto-talkinghead checkpoints")
 
-def cvt_custom_trt():
+def cvt_custom_trt():                                                                                               #convert onnx to trt files
     from scripts.cvt_onnx_to_trt import main as cvt_trt
     onnx_dir = "./checkpoints/ditto_onnx"
     trt_dir = "./checkpoints/ditto_trt_custom"
@@ -23,8 +23,8 @@ def download_Non_Ampere_trt():
     os.system("gdown https://drive.google.com/drive/folders/1-1qnqy0D9ICgRh8iNY_22j9ieNRC0-zf?usp=sharing -O ./checkpoints/ditto_trt --folder")
     return "./checkpoints/ditto_trt"
 
-if __name__ == "__main__":
-    if torch.cuda.get_device_capability()[0] < 8:
+if __name__ == "__main__":                                                                                          
+    if torch.cuda.get_device_capability()[0] < 8:                                                               #check if GPU supports Amperean TensorRT
         data_root = download_Non_Ampere_trt()
     else:
         data_root = "./checkpoints/ditto_trt_Ampere_Plus"
