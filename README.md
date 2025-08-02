@@ -1,13 +1,12 @@
-<h2 align='center'>SpeakPortrait: Audio-Driven Talking Head Animantion</h2>
+<h2 align='center'>SpeakPortrait: Audio-Driven Talking Head Animation</h2>
 
 This repository contains a re-implementation and extension of AntGroup's [Ditto](https://github.com/antgroup/ditto-talkinghead), a state-of-the-art system for audio-driven talking head animation. We build upon SpeakPortrait's foundation (~80% of the core pipeline), and added improvements to the UI, backend inference interface, and model deployment. This project enables real-time generation of photorealistic talking head videos given an input image and audio clip.
 
 Our modifications include:
--1. Added A Next.js Frontend and **Ngrok Backend** for seamless and user friendly interfacing \\
--2. Added **Zonos TTS** to the pipeline, to support text inputs. \\
--3. The TTS Supports **Emotional Voice Generation** as well as **Zero-Shot Voice Cloning**. \\ 
--4. Used **Qwen LLM API** in our Next.js frontend to help users in completing dialogues and prompting
-
+- Added A Next.js Frontend and **Ngrok Backend** for seamless and user friendly interfacing. <br>
+- Added **Zonos TTS** to the pipeline, to support text inputs. <br>
+- The TTS Supports **Emotional Voice Generation** as well as **Zero-Shot Voice Cloning**. <br>
+- Used **Qwen LLM API** in our Next.js frontend to help users in completing dialogues and prompting
 
 Clone the codes from [GitHub](https://github.com/ShlokP06/SpeakPortrait):  
 ```bash
@@ -144,7 +143,13 @@ Note: You may see some deprecation warnings during `npm install`, but they do no
 Now, the frontend-backend interface is working!
 
 ## 📧 Acknowledgement
-Our implementation is based on [S2G-MDDiffusion](https://github.com/thuhcsi/S2G-MDDiffusion) and [LivePortrait](https://github.com/KwaiVGI/LivePortrait). Thanks for their remarkable contribution and released code! If we missed any open-source projects or related articles, we would like to complement the acknowledgement of this specific work immediately.
+This work is primarily built on AntGroup's [Ditto](https://github.com/antgroup/ditto-talkinghead), which forms the backbone (~80%) of our implementation. We sincerely thank their team for open-sourcing such a well-engineered system.
+
+We also draw inspiration from:
+-[S2G-MDDiffusion](https://github.com/thuhcsi/S2G-MDDiffusion)
+-[LivePortrait](https://github.com/KwaiVGI/LivePortrait)
+
+If we've overlooked any contributors, please let us know — we’ll gladly update the acknowledgements.
 
 ## ⚖️ License
 This repository is released under the Apache-2.0 license as found in the [LICENSE](LICENSE) file.
