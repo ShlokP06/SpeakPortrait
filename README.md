@@ -1,9 +1,9 @@
-<h2 align='center'>Ditto: Motion-Space Diffusion for Controllable Realtime Talking Head Synthesis</h2>
+<h2 align='center'>SpeakPortrait: Audio-Driven Talking Head Animantion</h2>
 
-Clone the codes from [GitHub](https://github.com/antgroup/ditto-talkinghead):  
+Clone the codes from [GitHub](https://github.com/ShlokP06/SpeakPortrait):  
 ```bash
-git clone https://github.com/antgroup/ditto-talkinghead
-cd ditto-talkinghead
+git clone https://github.com/ShlokP06/SpeakPortrait
+cd SpeakPortrait
 ```
 
 ### Conda
@@ -34,7 +34,11 @@ pip install \
 ```
 
 If you don't use `conda`, you may also need to install `ffmpeg` according to the [official website](https://www.ffmpeg.org/download.html).
-
+Alternatively, on a Linux-based platform such as Colab run 
+```bash
+bash setup.sh
+```
+The setup.sh file installs ffmpeg and libcudnn, as well as the dependencies listed in requirements.txt.
 
 ## 📥 Download Checkpoints
 
@@ -54,6 +58,7 @@ The `checkpoints` should be like:
 ├── ditto_cfg
 │   ├── v0.4_hubert_cfg_trt.pkl
 │   └── v0.4_hubert_cfg_trt_online.pkl
+|   └── v0.4_hubert_cfg_pytorch.pkl
 ├── ditto_onnx
 │   ├── appearance_extractor.onnx
 │   ├── blaze_face.onnx
@@ -81,32 +86,6 @@ The `checkpoints` should be like:
     ├── motion_extractor_fp32.engine
     ├── stitch_network_fp16.engine
     └── warp_network_fp16.engine
-```
-
-- The `ditto_cfg/v0.4_hubert_cfg_trt_online.pkl` is online config
-- The `ditto_cfg/v0.4_hubert_cfg_trt.pkl` is offline config
-
-
-## 🚀 Inference 
-
-Run `inference.py`:
-
-```shell
-python inference.py \
-    --data_root "<path-to-trt-model>" \
-    --cfg_pkl "<path-to-cfg-pkl>" \
-    --audio_path "<path-to-input-audio>" \
-    --source_path "<path-to-input-image>" \
-    --output_path "<path-to-output-mp4>" 
-```
-
-The `checkpoints` should be like:
-```text
-./checkpoints/
-├── ditto_cfg
-│   ├── ...
-│   └── v0.4_hubert_cfg_pytorch.pkl
-├── ...
 └── ditto_pytorch
     ├── aux_models
     │   ├── 2d106det.onnx
@@ -122,6 +101,31 @@ The `checkpoints` should be like:
         ├── stitch_network.pth
         └── warp_network.pth
 ```
+
+- The `ditto_cfg/v0.4_hubert_cfg_trt_online.pkl` is online config
+- The `ditto_cfg/v0.4_hubert_cfg_trt.pkl` is offline config.
+- The `ditto_cf/v0.4_hubert_cfg_pytorch.pkl` is the Pytorch model config.
+
+
+## 🚀 Inference 
+### To run the Frontend
+```bash
+cd Interface
+#Install project dependencies
+npm install
+
+#Start the development server
+npm run dev
+```
+
+### To connect to backend
+For inference, if you want to see the execution step by step and temper with the parameters, we provide a [Colab Notebook](https://github.com/ShlokP06/SpeakPortrait/blob/main/Interface/backend_script/Video_generation.ipynb) for reference.
+Using the ngrok link generated in the final cell, you can connect to the frontend.
+You can also run the backend as follows:
+```bash
+python generate_video.py
+```
+Using the ngrok link generated, you can connect to the frontend.
 
 ## 📧 Acknowledgement
 Our implementation is based on [S2G-MDDiffusion](https://github.com/thuhcsi/S2G-MDDiffusion) and [LivePortrait](https://github.com/KwaiVGI/LivePortrait). Thanks for their remarkable contribution and released code! If we missed any open-source projects or related articles, we would like to complement the acknowledgement of this specific work immediately.
