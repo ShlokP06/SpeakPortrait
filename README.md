@@ -18,7 +18,7 @@ The following video demonstrates the effect of emotion control:
 In the above video, the left video is at default or neutral emotion, while the right one is angry.
 
 While LoRA finetuning to improve emotional realism seemed a good idea, due to lack of proper dataset, artifacts were visible.
-[Effect of LoRA](https://drive.google.com/file/d/1-mMCUQBQT1gJUc1f44YpdVmecFA4RpaX/view?usp=sharing)
+[Effect of LoRA](https://drive.google.com/file/d/1-I04ZXyH5RBX-M5HZgn3A6EReb8SnvZH/view?usp=sharing)
 In the above video, the left one is without LoRA adapter, whereas in the right one, lora adapter is there.
 
 ## Setup
