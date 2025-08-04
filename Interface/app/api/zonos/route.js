@@ -16,7 +16,7 @@ export async function POST(req) {
       ({e1,e2,e3,e4,e5,e6,e7,e8} = JSON.parse(emotional_keys));
     }
     console.log(e1,e2,e3,e4,e5,e6,e7,e8);
-    const client = await Client.connect("http://127.0.0.1:7860/");
+    const client = await Client.connect(process.env.ZONOS_URL);
 
     let speakerFile = null;
     if (speakerAudio && typeof speakerAudio.arrayBuffer === "function") {
