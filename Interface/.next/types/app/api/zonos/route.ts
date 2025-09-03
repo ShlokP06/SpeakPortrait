@@ -1,4 +1,4 @@
-// File: C:\Users\Shlok\College\ditto-talkinghead\Interface\app\api\zonos\route.js
+// File: C:\Users\Shlok\Speakportrait\Interface\app\api\zonos\route.js
 import * as entry from '../../../../../app/api/zonos/route.js'
 import type { NextRequest } from 'next/server.js'
 

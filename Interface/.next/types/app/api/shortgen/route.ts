@@ -1,4 +1,4 @@
-// File: C:\Users\Shlok\College\ditto-talkinghead\Interface\app\api\shortgen\route.js
+// File: C:\Users\Shlok\Speakportrait\Interface\app\api\shortgen\route.js
 import * as entry from '../../../../../app/api/shortgen/route.js'
 import type { NextRequest } from 'next/server.js'
 

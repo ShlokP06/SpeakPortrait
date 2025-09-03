@@ -3,6 +3,7 @@ import { Client, handle_file } from "@gradio/client";
 
 export async function POST(req) {
   try {
+    const zonosUrl = process.env.ZONOS_TTS_URL;
     let e1,e2,e3,e4,e5,e6,e7,e8;
     let unconditional_keys = [];
     const formData = await req.formData();
@@ -16,7 +17,7 @@ export async function POST(req) {
       ({e1,e2,e3,e4,e5,e6,e7,e8} = JSON.parse(emotional_keys));
     }
     console.log(e1,e2,e3,e4,e5,e6,e7,e8);
-    const client = await Client.connect(process.env.ZONOS_URL);
+    const client = await Client.connect(zonosUrl);
 
     let speakerFile = null;
     if (speakerAudio && typeof speakerAudio.arrayBuffer === "function") {

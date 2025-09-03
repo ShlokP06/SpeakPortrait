@@ -5,6 +5,7 @@ from pyngrok import ngrok
 import os
 import numpy as np
 import librosa
+import traceback
 
 from scripts.inference import run
 from scripts.stream_pipeline_offline import StreamSDK  #Importing the class from original Ditto
@@ -12,7 +13,7 @@ from scripts.stream_pipeline_offline import StreamSDK  #Importing the class from
 data_root = "./checkpoints/ditto_trt"
 cfg_pkl = "./checkpoints/ditto_cfg/v0.4_hubert_cfg_trt.pkl"
 app = Flask(__name__)
-ngrok.set_auth_token('')                            #Set your own ngrok token
+ngrok.set_auth_token('2zxjXmreDxhJpx0KuSrf71LWOpJ_6dP7eCnsUUpGyxtRbK5GG')                            #Set your own ngrok token
 public_url = ngrok.connect(5000)
 print(f"🔗 Public URL: {public_url}")   
 
@@ -27,16 +28,20 @@ def generate():
     audio = request.files.get('audio')
     emotion_index = request.form.get('emotion')
 
-    if not image or not audio or emotion_index is None:                            #handling empty input errors
-        return "Missing image, audio, or emotion", 400
+    if not image or not audio:                            #handling empty input errors
+        return "Missing image, audio", 400
 
     try:
-        emotion_index = int(emotion_index)                                          #Ditto requires us to use emotion indexes
-        #{0:"Angry", 1:"Disgust", 2:"Fear", 3:"Happy", 4:"Neutral", 5: "Sad", 6:"Surprise", 7:"Contempt"}
+      if emotion_index is None or emotion_index =="":
+        emotion_index = 4
+      else:
+        emotion_index = int(emotion_index)
         if not (0 <= emotion_index <= 7):
             return "Emotion index must be between 0 and 7", 400
+                                          #Ditto requires us to use emotion indexes
+        #{0:"Angry", 1:"Disgust", 2:"Fear", 3:"Happy", 4:"Neutral", 5: "Sad", 6:"Surprise", 7:"Contempt"}
     except ValueError:
-        return "Emotion index must be an integer", 400
+      return "Emotion index must be an integer", 400
 
     image_path = "/content/image.png"
     audio_path = "/content/audio.wav"
@@ -54,13 +59,15 @@ def generate():
 
         SDK = StreamSDK(cfg_pkl, data_root)                                        #Initialising a member of the class
         run(SDK, audio_path, image_path, output_path, more_kwargs=more_kwargs)
-        del SDK                                                                     #Deleting the member to free up VRAM
+        del SDK
+        print(f"✅ Inference finished, output at {output_path}")                                                                     #Deleting the member to free up VRAM
 
     except Exception as e:
-        return f"Inference failed: {e}", 500
+      traceback.print_exc()
+      return f"Inference failed: {e}", 500
 
     if not os.path.exists(output_path):
-        return "Video not found", 500
+      return "Video not found", 500
 
     return send_file(output_path, mimetype="video/mp4", as_attachment=True)
 

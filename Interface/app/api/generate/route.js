@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req) {
   const formData = await req.formData();
-  const ngrokUrl = process.env.NEXT_PUBLIC_API_URL + '/generate';
+  const ngrokUrl = process.env.NEXT_PUBLIC_API_URL + 'generate';
 
   const res = await fetch(ngrokUrl, {
     method: 'POST',
     body: formData,
     headers: {
-      'ngrok-skip-browser-warning': 'false',
+      'ngrok-skip-browser-warning': 'true',
     },
   });
 
