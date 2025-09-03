@@ -40,7 +40,9 @@ If you have problems creating a conda environment, you can also refer to our [Co
 After correctly installing `pytorch`, `cuda` and `cudnn`, you only need to install a few packages using pip:
 ```bash
 pip install \
-    tensorrt==8.6.1 \
+    tensorrt \
+    onnxruntime \
+    mediapipe \
     librosa \
     tqdm \
     filetype \
@@ -71,11 +73,7 @@ ngrok.set_auth_token('')            #Enter your token here: generate_video.py li
 ## 📥 Download Checkpoints
 
 Download checkpoints from [HuggingFace](https://huggingface.co/digital-avatar/ditto-talkinghead) and put them in `checkpoints` dir:
-```bash
-git lfs install
-git clone https://huggingface.co/digital-avatar/ditto-talkinghead checkpoints
-```
-Alternatively, run the following python file for model download:
+
 ```bash
 python download_models.py
 ```
