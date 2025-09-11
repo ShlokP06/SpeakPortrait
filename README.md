@@ -185,7 +185,7 @@ If we've overlooked any contributors, please let us know — we’ll gladly upda
       <a href="https://www.linkedin.com/in/anushka-jain-12a812318/">
         <b>Anushka Jain</b>
       </a>
-      <br /> Audio Processing and TTS  240008005
+      <br /> Prosody Processing and Dataset Preparation 240008005
     </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/tanishq-dhari-734029360/">
@@ -197,7 +197,7 @@ If we've overlooked any contributors, please let us know — we’ll gladly upda
       <a href="https://www.linkedin.com/in/samvaadi-dadhi-8528a631a/">
         <b>Samvaadi Dadhi</b>
       </a>
-      <br /> Data Processing and Research  240051019
+      <br /> Data Processing and Fine Tuning  240051019
     </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/harsh-mahajan-4b3b9431b/">
