@@ -28,4 +28,4 @@ if __name__ == "__main__":
         data_root = download_Non_Ampere_trt()
     else:
         data_root = "./checkpoints/ditto_trt_Ampere_Plus"
-    print(f"✅ Model files are ready at: {data_root}")
+    print(f"Model files are ready at: {data_root}")
