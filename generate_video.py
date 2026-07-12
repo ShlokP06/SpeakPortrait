@@ -60,7 +60,7 @@ def generate():
         SDK = StreamSDK(cfg_pkl, data_root)                                        #Initialising a member of the class
         run(SDK, audio_path, image_path, output_path, more_kwargs=more_kwargs)
         del SDK
-        print(f"✅ Inference finished, output at {output_path}")                                                                     #Deleting the member to free up VRAM
+        print(f"Inference finished, output at {output_path}")                                                                     #Deleting the member to free up VRAM
 
     except Exception as e:
       traceback.print_exc()
