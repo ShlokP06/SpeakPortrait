@@ -11,7 +11,7 @@ Our modifications include:
 ## Demo Videos
 
 The following video shows the whole pipeline running together:
-[Watch the demo video](https://drive.google.com/file/d/1-mMCUQBQT1gJUc1f44YpdVmecFA4RpaX/view?usp=sharing)
+[Watch the demo video](https://drive.google.com/file/d/1Hys1tuPWrNlR34faB9zKXVXUe8eosT6e/view?usp=sharing)
 
 The following video demonstrates the effect of emotion control:
 [Emotion Control](https://drive.google.com/file/d/1IEpWbIe9VW5cVjOXFp69lQmJd8fi5D_g/view?usp=sharing)
